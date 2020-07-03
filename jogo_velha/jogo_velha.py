@@ -34,6 +34,8 @@ def regras (linha, coluna, peca):
         return True
 
 def verifica_vitoria():
+    """ Função que verifica se algum jogador venceu, retorna verdadeiro caso tenha vencido
+    """
     #verificando linha e coluna
     for linha in range(1, 4):
         vetor_aux = [' ', ' ', ' ']
@@ -54,28 +56,18 @@ def verifica_vitoria():
     if tabuleiro[1][3] == tabuleiro[2][2] == tabuleiro[3][1] != ' ':
         print("Vitória!")
         return True
-    
-def main():
-    #Menu
-    '''
-    print('*' * 30)
-    print('0 - Informações')
-    print('1 - Novo Jogo')
-    print('2 - Sair')
-    opc = input('Selecione a opção desejada: ')    
-    print('*' * 30)
-    #Condições do menu
-    if opc == 0:
-        infomacoes()
-    elif opc == 1:
-        game()
-    elif opc == 2:
-        exit()
-    else:
-        print("Comando Inválido")
-        return False
-    '''
 
+def infomacoes():
+    """Informações acerca do jogo
+    """
+    print('*' * 30)
+    print('Versão: 1.0', end='\n')
+    print('Autor: Mauro Fidelis Santana Pontes', end='\n')
+    print('Data da última atualização: 03/07/2020', end='\n')
+    print('Mais informações: https://github.com/maurofidelis/jogo_da_velha')
+    print('*' * 30)
+
+def game():
     #Tabuleiro Vazio
     imprime_tabuleiro()
     cont = 1
@@ -95,7 +87,27 @@ def main():
             cont = cont + 1
         else:
             print("Jogada Inválida")
-       
+
+def main():
+    #Menu
+    print('*' * 30)
+    print('0 - Informações')
+    print('1 - Novo Jogo')
+    print('2 - Sair')
+    print('*' * 30)
+    opc = int(input('Selecione a opção desejada: '))   
+    
+    #Condições do menu
+    if opc == 0:
+        infomacoes()
+    elif opc == 1:
+        game()
+    elif opc == 2:
+        exit()
+    else:
+        print("Comando Inválido")
+        return False
+    
 main()
 
     
